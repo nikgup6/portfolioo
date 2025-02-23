@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
+import headerImg from "../assets/img/nik.png";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -11,7 +15,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "UI/UX Designer" ];
+  const toRotate = [ "Full Stack Developer", "AI/ML Engineer", "Team Leader" ];
   const period = 2000;
 
   useEffect(() => {
@@ -50,15 +54,16 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
+        <Router>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Judy`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                <h1>{`Hi! I'm Nikunj Gupta`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Full Stack Developer", "AI/ML Engineer", "Team Leader" ]'><span className="wrap">{text}</span></span></h1>
+                  <p> Machine Learning enthusiast with expertise in AI, NLP, and Cloud Computing and Full Stack Development. Passionate about applying AI/ML in real-world applications to enhance sustainability and cybersecurity. Strong leadership and problem-solving skills, seeking to contribute to innovative projects.</p>
+                  <HashLink to='#connect'><button className="vvd"><span>Let’s Connect </span><ArrowRightCircle size={25} /></button></HashLink>
               </div>}
             </TrackVisibility>
           </Col>
@@ -71,6 +76,7 @@ export const Banner = () => {
             </TrackVisibility>
           </Col>
         </Row>
+        </Router>
       </Container>
     </section>
   )

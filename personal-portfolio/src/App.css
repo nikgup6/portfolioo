@@ -161,6 +161,7 @@ span.navbar-text {
 	background-color: transparent;
 	transition: 0.3s ease-in-out;
 }
+
 .navbar-text button span {
   z-index: 1;
 }
@@ -285,6 +286,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner img {
   animation: updown 3s linear infinite;
 }
+
 @keyframes updown {
     0% {
         transform: translateY(-20px);
@@ -351,6 +353,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	font-weight: 700;
   text-align: center;
 }
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  margin-top: 50px;
+}
+@media (max-width: 1120px) {
+  .project-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Show one card per row on small screens */
+  }
+}
 .project p {
   color: #B8B8B8;
   font-size: 18px;
@@ -415,9 +429,20 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .proj-imgbx {
   position: relative;
-  border-radius: 30px;
-  overflow: hidden;
   margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 20rem;
+  height: 10rem;
+  object-fit:contain;
+}
+.proj-imgbx imgUrl{
+  object-fit: fill;
 }
 .proj-imgbx::before {
   content: "";
